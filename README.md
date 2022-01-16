@@ -6,10 +6,10 @@
 ### 2. Pewlett Hackard Analysis Results:
 * 72,458 employees are eligible to retire.
 * The majority of retiring titles are Senior members. There are 25,916 Engineers and 24,926 Staff. See breakdown below:
-      ![5](https://github.com/maldonado91/PyBer-Analysis/blob/main/analysis/Fig5.png)
+      ![retiring](https://github.com/maldonado91/Pewlett-Hackard-Analysis/blob/main/Resources/retiring_titles.PNG)
 * 1,549 employees are eligible for the mentorship program
 * The majority of mentorship titles are Senior members. There are 569 Staff and 529 Engineers. See breakdown below: 
-      ![5](https://github.com/maldonado91/PyBer-Analysis/blob/main/analysis/Fig5.png)
+      ![mentorship](https://github.com/maldonado91/Pewlett-Hackard-Analysis/blob/main/Resources/mentorship_titles.PNG)
 
  ### 3 Summary:
 #### 
