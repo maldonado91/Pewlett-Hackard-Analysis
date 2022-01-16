@@ -17,12 +17,13 @@
       Pewlett Hackard is looking at just over 72,000 positions that will need to be filled if all eligible employees choose to retire.
 * Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
       I would say yes because there are double the amount of Senior Engineers/Staff and than no-Seniors level employees.
-* Two additional queries/tables thatwould provide insight into the upcoming "silver tsunami"?
+* Two additional queries/tables that would provide insight into the upcoming "silver tsunami"?
 
       I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
            
            
            ```
+           --Create mentorship titles table
             DROP TABLE IF EXISTS mentorship_titles;
             SELECT COUNT(title), title 
             INTO mentorship_titles
@@ -33,16 +34,44 @@
             SELECT * FROM mentorship_titles; 
             ```
             
-      I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
+      Since most of the elibible retirees are Engineers and Staff I'm curious to see how many non retiring elibigle employees will be left to fill those potential job openings
            
            
            ```
-            DROP TABLE IF EXISTS mentorship_titles;
+            --Create new NON retirement_titles table
+            --Drop if already exists
+            DROP TABLE IF EXISTS non_retirement_titles;
+            --Enter data from employees and titles tables
+            SELECT e.emp_no, e.first_name, e.last_name, et.title, et.from_date, et.to_date
+            INTO non_retirement_titles
+            FROM employees e
+            LEFT JOIN titles et ON et.emp_no = e.emp_no
+            WHERE e.birth_date NOT BETWEEN '1952-01-01' AND '1955-12-31'
+            ORDER BY e.emp_no;
+
+            --Select new non retirement table
+            SELECT * FROM non_retirement_titles;
+
+            --Use Dictinct with Orderby to remove duplicate rows
+            DROP TABLE IF EXISTS unique_nonret_titles;
+            SELECT DISTINCT ON (emp_no) emp_no,
+            first_name,
+            last_name,
+            title
+            INTO unique_nonret_titles
+            FROM non_retirement_titles
+            WHERE to_date = '9999-01-01'
+            ORDER BY emp_no, to_date DESC;
+
+            SELECT * FROM unique_nonret_titles;
+
+            --Create retiring titles table
+            DROP TABLE IF EXISTS non_retiring_titles;
             SELECT COUNT(title), title 
-            INTO mentorship_titles
-            FROM mentorship_eligibility
+            INTO non_retiring_titles
+            FROM unique_nonret_titles
             GROUP BY title
             ORDER BY COUNT(title) DESC;
 
-            SELECT * FROM mentorship_titles; 
+            SELECT * FROM non_retiring_titles; 
             ```
