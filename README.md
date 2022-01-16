@@ -20,7 +20,7 @@
 * Two additional queries/tables thatwould provide insight into the upcoming "silver tsunami"?
       * I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
             ```
-           --Create mentorship titles table
+     
             DROP TABLE IF EXISTS mentorship_titles;
             SELECT COUNT(title), title 
             INTO mentorship_titles
@@ -29,5 +29,6 @@
             ORDER BY COUNT(title) DESC;
 
             SELECT * FROM mentorship_titles; 
+            
             ```
       * I would  
