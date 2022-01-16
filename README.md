@@ -19,7 +19,8 @@
       I would say yes because there are double the amount of Senior Engineers/Staff and than no-Seniors level employees.
 * Two additional queries/tables thatwould provide insight into the upcoming "silver tsunami"?
 
-*     I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
+      * I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
+           
            
            ```
             DROP TABLE IF EXISTS mentorship_titles;
