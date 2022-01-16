@@ -14,7 +14,19 @@
  ### 3 Summary:
 #### 
 * How many roles will need to be filled as the "silver tsunami begins to make an impact?
- 
+      Pewlett Hackard is looking at just over 72,000 positions that will need to be filled if all eligible employees choose to retire.
 * Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
-
+      I would say yes because there are double the amount of Senior Engineers/Staff and than no-Seniors level employees.
 * Two additional queries/tables thatwould provide insight into the upcoming "silver tsunami"?
+      * I did a GROUB BY of all mentorship eligible employes to view that breakdwn like we did retirement eligible employees
+            ```
+           --Create mentorship titles table
+            DROP TABLE IF EXISTS mentorship_titles;
+            SELECT COUNT(title), title 
+            INTO mentorship_titles
+            FROM mentorship_eligibility
+            GROUP BY title
+            ORDER BY COUNT(title) DESC;
+
+            SELECT * FROM mentorship_titles; 
+      * I would  
